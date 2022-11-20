@@ -31,20 +31,56 @@ function Product(props) {
   return (
     <Card>
       <Link to={`/product/${product.slug}`}>
-        <img src={product.image} className="card-img-top" alt={product.name} />
+        <div style={{ overflow: "hidden" }}>
+          <img
+            src={product.image}
+            className="card-img-top"
+            alt={product.name}
+            style={{ width: "100%", height: "380px", objectFit: "cover" }}
+          />
+        </div>
       </Link>
-      <Card.Body>
-        <Link to={`/product/${product.slug}`}>
-          <Card.Title>{product.name}</Card.Title>
+      <Card.Body
+        style={{
+          height: "175px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
+        <Link
+          to={`/product/${product.slug}`}
+          style={{ textDecoration: "none" }}
+        >
+          <Card.Title
+            style={{
+              color: "#0F1111",
+              fontSize: "16px",
+            }}
+          >
+            {product.name}
+          </Card.Title>
         </Link>
         <Rating rating={product.rating} numReviews={product.numReviews} />
-        <Card.Text>${product.price}</Card.Text>
+        <Card.Text>
+          $<span style={{ fontWeight: "bold" }}>{product.price}</span>
+        </Card.Text>
         {product.countInStock === 0 ? (
           <Button variant="light" disabled>
-            Out of stock
+            Out of Stock
           </Button>
         ) : (
-          <Button onClick={() => addToCartHandler(product)}>Add to cart</Button>
+          <Button
+            onClick={() => addToCartHandler(product)}
+            style={{
+              backgroundColor: "#E67A00",
+              color: "#fff",
+              border: "none",
+              fontSize: "14px",
+            }}
+          >
+            Add to Cart
+          </Button>
         )}
       </Card.Body>
     </Card>

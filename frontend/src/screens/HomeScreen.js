@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer } from "react";
 import axios from "axios";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -46,9 +46,11 @@ function HomeScreen() {
   return (
     <div>
       <Helmet>
-        <title>Amazona</title>
+        <title>Amazon</title>
       </Helmet>
-      <h1>Featured Products</h1>
+      <h1 className="mt-4 mb-4" style={{ fontSize: "30px" }}>
+        Featured Products
+      </h1>
       <div className="products">
         {loading ? (
           <LoadingBox />

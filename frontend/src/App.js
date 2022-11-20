@@ -76,18 +76,25 @@ function App() {
       >
         <ToastContainer position="bottom-center" limit={1} />
         <header>
-          <Navbar bg="dark" variant="dark" expand="lg">
+          <Navbar
+            variant="dark"
+            expand="lg"
+            style={{ backgroundColor: "#131921" }}
+          >
             <Container>
-              <Button
-                variant="dark"
-                onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
-              >
-                <i className="fas fa-bars"></i>
-              </Button>
+              <div className="d-flex align-items-center">
+                <Button
+                  variant="dark"
+                  onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
+                  style={{ border: "none", backgroundColor: "transparent" }}
+                >
+                  <i className="fas fa-bars"></i>
+                </Button>
 
-              <LinkContainer to="/">
-                <Navbar.Brand>amazona</Navbar.Brand>
-              </LinkContainer>
+                <LinkContainer to="/">
+                  <Navbar.Brand>amazon</Navbar.Brand>
+                </LinkContainer>
+              </div>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <SearchBox />
@@ -150,8 +157,8 @@ function App() {
               : "side-navbar d-flex justify-content-between flex-wrap flex-column"
           }
         >
-          <Nav className="flex-column text-white w-100 p-2">
-            <Nav.Item>
+          <Nav className="flex-column text-white w-100 pt-4 px-4">
+            <Nav.Item className="mb-2">
               <strong>Categories</strong>
             </Nav.Item>
             {categories.map((category) => (
@@ -159,8 +166,11 @@ function App() {
                 <LinkContainer
                   to={`/search?category=${category}`}
                   onClick={() => setSidebarIsOpen(false)}
+                  style={{ color: "rgba(255,255,255,.55)" }}
                 >
-                  <Nav.Link>{category}</Nav.Link>
+                  <Nav.Link>
+                    {category.charAt(0).toUpperCase() + category.slice(1)}
+                  </Nav.Link>
                 </LinkContainer>
               </Nav.Item>
             ))}
@@ -267,7 +277,12 @@ function App() {
           </Container>
         </main>
         <footer>
-          <div className="text-center">All rights reserved</div>
+          <div
+            className="text-center mt-5 mb-2"
+            style={{ fontWeight: "bold", color: "rgb(19, 25, 33)" }}
+          >
+            All rights reserved
+          </div>
         </footer>
       </div>
     </BrowserRouter>

@@ -141,6 +141,7 @@ export default function SearchScreen() {
                 <Link
                   className={"all" === category ? "text-bold" : ""}
                   to={getFilterUrl({ category: "all" })}
+                  style={{ color: "#333", textDecoration: "none" }}
                 >
                   Any
                 </Link>
@@ -150,6 +151,7 @@ export default function SearchScreen() {
                   <Link
                     className={c === category ? "text-bold" : ""}
                     to={getFilterUrl({ category: c })}
+                    style={{ color: "#333", textDecoration: "none" }}
                   >
                     {c}
                   </Link>
@@ -164,6 +166,7 @@ export default function SearchScreen() {
                 <Link
                   className={"all" === price ? "text-bold" : ""}
                   to={getFilterUrl({ price: "all" })}
+                  style={{ color: "#333", textDecoration: "none" }}
                 >
                   Any
                 </Link>
@@ -173,6 +176,7 @@ export default function SearchScreen() {
                   <Link
                     to={getFilterUrl({ price: p.value })}
                     className={p.value === price ? "text-bold" : ""}
+                    style={{ color: "#333", textDecoration: "none" }}
                   >
                     {p.name}
                   </Link>
@@ -181,13 +185,14 @@ export default function SearchScreen() {
             </ul>
           </div>
           <div>
-            <h3>Avg. Customer Review</h3>
+            <h3>Customer Review</h3>
             <ul>
               {ratings.map((r) => (
                 <li key={r.name}>
                   <Link
                     to={getFilterUrl({ rating: r.rating })}
                     className={`${r.rating}` === `${rating}` ? "text-bold" : ""}
+                    style={{ textDecoration: "none" }}
                   >
                     <Rating caption={" & up"} rating={r.rating}></Rating>
                   </Link>
@@ -197,6 +202,7 @@ export default function SearchScreen() {
                 <Link
                   to={getFilterUrl({ rating: "all" })}
                   className={rating === "all" ? "text-bold" : ""}
+                  style={{ textDecoration: "none" }}
                 >
                   <Rating caption={" & up"} rating={0}></Rating>
                 </Link>

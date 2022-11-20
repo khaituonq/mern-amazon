@@ -196,7 +196,15 @@ function ProductScreen() {
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
                     <div className="d-grid">
-                      <Button onClick={addToCartHandler} variant="primary">
+                      <Button
+                        onClick={addToCartHandler}
+                        variant="primary"
+                        style={{
+                          border: "none",
+                          backgroundColor: "rgb(230, 122, 0)",
+                          color: "#fff",
+                        }}
+                      >
                         Add to Cart
                       </Button>
                     </div>
